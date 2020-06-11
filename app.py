@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 app = Flask(__name__)
-@app.route("/Home")
+@app.route("/")
 def home():
-    return "Hello, Flask!"
+    return render_template('home.html')
 
 @app.errorhandler(404)
 def error404(e):
