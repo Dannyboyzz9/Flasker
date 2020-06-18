@@ -1,3 +1,9 @@
-#pagenotfound{
-    background: deepskyblue;
+#errorpage h1 {
+    font-size: 8rem;
+    margin-top: 2rem;
+}
+#errorpage {
+    background: url(../img/bigerror.jpg) no-repeat right center;
+    height: calc(100vh - 56px);
+    background-size: 1000px 600px;
 }
