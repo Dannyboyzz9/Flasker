@@ -1,9 +1,14 @@
-#errorpage h1 {
+#errorpage h1{
     font-size: 8rem;
     margin-top: 2rem;
 }
-#errorpage {
+#errorpage{
     background: url(../img/bigerror.jpg) no-repeat right center;
-    height: calc(100vh - 56px);
-    background-size: 1000px 600px;
+    height: 100vh;
+    display: block;
+    position: relative;
+    background-size: 50% 50%;
+}
+.nav-link i{
+    margin-right: 10px;
 }
