@@ -8,3 +8,6 @@ def home():
 def error404(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
+
+if __name__ == '__main__':
+  app.run(debug=True)
