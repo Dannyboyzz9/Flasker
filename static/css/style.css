@@ -1,3 +1,7 @@
+body{
+    background-color: aqua;
+  }
+
 #errorpage h1{
     font-size: 8rem;
     margin-top: 2rem;
@@ -11,4 +15,24 @@
 }
 .nav-link i{
     margin-right: 10px;
+}
+.forgotpassword{
+    font-style: italic;
+}
+.signuphere{
+    font-style: italic;
+}
+.loginpage{
+    /**Things that need to be added
+        -To be Centered on the Page
+        -Rounded courners 
+    **/
+    color: #fff;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    border-radius: 2rem;
+}
+.getapp{
+    font-style: italic;
 }
