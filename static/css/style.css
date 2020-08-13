@@ -27,12 +27,13 @@ body{
         -To be Centered on the Page
         -Rounded courners 
     **/
-    color: #fff;
+    height: 400px;
     background-color: #fff;
     border: 1px solid #fff;
-    border-radius: 2rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
+    margin-top: 100px;
 }
 .getapp{
     font-style: italic;
 }
+    

@@ -8,13 +8,14 @@
             <div class="col-4"></div>
             <div class="col-4 loginpage">
                 <title>Login to Gramsnap</title>
-                <form method="POST" action="/register"> 
+                <form method="POST" action="/login"> 
                     <!--This is Where Username and Password inputs and Auth-->
 
-                    <!-- Registration -->
-                    <input type="email" name="email">
-                    <input type="password" name="password">
-                    <input type="password" name="password_confirm">
+                    <label for="username ">Username:</label> <!--Username-->
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password ">Password:</label> <!--Password-->
+                    <input type="text" id="password" name="password" required>
 
                     <input type="submit" value="Submit"> <!--Submit Button-->
                 </form>
