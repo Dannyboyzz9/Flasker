@@ -16,9 +16,7 @@ body{
 .nav-link i{
     margin-right: 10px;
 }
-.forgotpassword{
-    font-style: italic;
-}
+
 .signuphere{
     font-style: italic;
 }
@@ -27,13 +25,18 @@ body{
         -To be Centered on the Page
         -Rounded courners 
     **/
-    height: 400px;
+    height: 600px;
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 1rem;
     margin-top: 100px;
+    align-content: center;
 }
 .getapp{
     font-style: italic;
 }
-    
+.title{
+    font-size: 20px;
+    text-align: center;
+    margin: 1.5rem;
+}

@@ -5,19 +5,22 @@
     <link rel="stylesheet" href="../static/css/style.css">
         <div class="container">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4 loginpage">
-                <title>Login to Gramsnap</title>
+            <div class="col-3"></div>
+            <div class="col-5 loginpage">
                 <form method="POST" action="/login"> 
+                    <h1>Login to Gramsnap</h1>
+                    
                     <!--This is Where Username and Password inputs and Auth-->
+                    <div class="form-group"> <!--Username-->
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control"  placeholder="Password" name="username">
+                    </div>
+                    <div class="form-group"> <!--Password-->
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control"  placeholder="Password" name="password">
+                    </div>
 
-                    <label for="username ">Username:</label> <!--Username-->
-                    <input type="text" id="username" name="username" required>
-
-                    <label for="password ">Password:</label> <!--Password-->
-                    <input type="text" id="password" name="password" required>
-
-                    <input type="submit" value="Submit"> <!--Submit Button-->
+                    <input type="submit" value="Submit" class="btn btn-primary"> <!--Submit Button-->
                 </form>
                 <a class="forgotpassword" href="#">Forgot Password?</a> <!--This will be used for the forgot password-->
                 <p>Dont have an account<a class="signuphere" href="#"> Sign Up Here</a></p>
@@ -28,7 +31,7 @@
 
             </div>
 
-            <div class="col-4"></div>
+            <div class="col-3"></div>
             </div>
         </div>
     {% endblock %}
