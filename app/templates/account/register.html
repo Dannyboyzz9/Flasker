@@ -1,50 +1,50 @@
-    {% extends "base.html" %}
-    {% block main %}
-    
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-        <div class="container">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-5 loginpage">
-                    <form method="POST" action="/register">
-                        <h1 class="title">Login to Gramsnap</h1>
-                        {% with messages = get_flashed_messages() %}
-                            {% if messages %}
-                                {% for message in messages %}
-                                <p>{{ message }}</p>
-                                {% endfor %}
-                            {% endif %}
-                        {% endwith %}
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="username">username</label>
-                            <input type="text" class="form-control"  placeholder="Username" name="username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control"  placeholder="Password" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="password_confirm">Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="Password" name="password_confirm">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <p>Already Have a Account<a style="font-style: italic;" href="#"> Login Here</a></p>
-                    <h1 class="getapp">Get the App</h1>
-                    <a href="#"><img src="#" alt="apple"></a> <!-- This will send Iphone/Apple Device users to the App store to download the app-->
-                    <a href="#"><img src="#" alt="android"></a> <!--This will send android users to the google play store to download the app-->
-                    <!-- Footer Content, Help, Privacy and Terms and Conditions--> 
-                  
-                    
+{% extends "base.html" %}
+{% block main %}
+
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="../static/css/style.css">
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5 loginpage">
+            <form method="POST" action="/register">
+                <h1 class="title">Login to Gramsnap</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <div class="col-3"></div>
-            </div>
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" class="form-control"  placeholder="Username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control"  placeholder="Password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="password_confirm">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password_confirm">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <p>Already Have a Account<a style="font-style: italic;" href="/login"> Login Here</a></p>
+            
+            <p class="getapp">Get the App</p>
+            <a href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo">
+                <img src="/static/img/1_V9-OPWpauGEi-JMp05RC_A.png" class="appleapp" alt="apple"></a> <!--This will send Iphone/Apple Device users to the App store to download the app-->
+            <a href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3DC4A6B41E-0CA5-425E-A611-19D72FB0CB95%26utm_content%3Dlo%26utm_medium%3Dbadge">
+                <img src="/static/img/get-it-on-google-play-png-1.png" class="googleapp" alt="android"></a> <!--This will send android users to the google play store to download the app-->
         </div>
-    {% endblock %}
-    
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}
