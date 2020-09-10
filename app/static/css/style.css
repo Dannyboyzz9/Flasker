@@ -63,3 +63,13 @@ body{
     padding-left: 1rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
 }
+
+.grid-item{
+    width: calc(33vw - 30px);
+    float: left;
+    margin-bottom: 30px;
+}
+.grid-item img{
+    width: 300px;
+    height: auto;
+}

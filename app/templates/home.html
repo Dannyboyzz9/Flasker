@@ -2,12 +2,23 @@
     {% block main %}
     <div class="container">
         <div class="row">
-            <div class="col-3"></div>
-            <div class="col-5">
-                <div class="hometitle">This is where the World Will Become Your Oyster</div> 
-            </div>
-            <div class="col-3"></div>
-            </div>
+            <div class="hometitle">This is where the World Will Become Your Oyster</div> 
+            <br>
+            <h2>Whats being uploaded</h2>
+            <br>
+            {% if images %}
+                <div class="masonry bordered">
+                {% for image_object in images.each() %}
+                    {% with image = image_object.val() %}
+                    <div class="brick card">
+                        <img src="{{ image.upload_location }}" alt="{{ image.description }}">
+                        <p class="card-title"> Catagory: {{ image.category }} Image Tags: {{ image.tags }}</p>
+                    </div>
+                    {% endwith %}
+                {% endfor %}
+                </div>
+            {% endif %}
         </div>
+    </div>
     {% endblock %}
-    
+     
