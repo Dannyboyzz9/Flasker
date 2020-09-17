@@ -20,6 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+            {% if user.logged_in %}
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/images"><i class="#"></i> Images</a>
@@ -28,15 +29,19 @@
                     <a class="nav-link" href="/images/upload"><i class="#"></i> Upload</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/profile"><i class="#"></i> Profile</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
                     <a class="nav-link" href="/register"><i class="#"></i>Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login"><i class="#"></i> Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile"><i class="#"></i> Profile</a>
-                </li>
             </ul>
+            {% endif %}
         </nav>  
     </header>
     {% endblock %}

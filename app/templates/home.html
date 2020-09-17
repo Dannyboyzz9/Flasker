@@ -1,24 +1,25 @@
-    {% extends "base.html" %}
-    {% block main %}
-    <div class="container">
-        <div class="row">
-            <div class="hometitle">This is where the World Will Become Your Oyster</div> 
-            <br>
-            <h2>Whats being uploaded</h2>
-            <br>
-            {% if images %}
-                <div class="masonry bordered">
-                {% for image_object in images.each() %}
-                    {% with image = image_object.val() %}
-                    <div class="brick card">
-                        <img src="{{ image.upload_location }}" alt="{{ image.description }}">
-                        <p class="card-title"> Catagory: {{ image.category }} Image Tags: {{ image.tags }}</p>
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="hometitle">This is where the World Will Become Your Oyster</div> 
+        {% if images %}
+            <div class="masonry bordered">
+            {% for image_object in images.each() %}
+                {% with image = image_object.val() %}
+                <div class="brick">
+                    <img src="{{ image.upload_location }}" alt="{{ image.description }}">
+                    <div class="overlaytext"> 
+                        <!--This is where infomation about the Image will be located--> 
+                        <div class="imgtitle"> {{ image.name }}</div>
+                        <div class="imgauthor"> {{ image.author }}</div>
+                        <div class="imgcattag"> {{ image.category }} {{ image.tags }} </div>
                     </div>
-                    {% endwith %}
-                {% endfor %}
                 </div>
-            {% endif %}
-        </div>
+                {% endwith %}
+            {% endfor %}
+            </div>
+        {% endif %}
     </div>
-    {% endblock %}
-     
+</div>
+{% endblock %}
