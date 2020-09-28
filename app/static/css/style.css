@@ -51,6 +51,7 @@ body{
  }
  img, video {
    max-width: 100%;
+   min-width: 346.66px;
    vertical-align: middle;
  }
  p {
@@ -91,6 +92,7 @@ body{
 .signuphere{
     font-style: italic;
 }
+
 .loginpage{
     height: 600px;
     background-color: #fff;
@@ -108,6 +110,15 @@ body{
     margin: 1.5rem;
 }
 
+.homepage{
+  background-color: white;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: auto;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-radius: 1rem;
+}
 .hometitle{
     padding: 1rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
@@ -150,22 +161,22 @@ body{
     padding: 1rem;
 }
   
-  .overlaytext {
-    position: relative;
-    opacity: 0;
-  }
+.overlaytext {
+  position: relative;
+  opacity: 0;
+}
 
-  .brick:hover .overlaytext{
-    position: relative; 
-    opacity: 0.5;
-    transition: .5s ease;
-  }
+.brick:hover .overlaytext{
+  position: relative; 
+  opacity: 0.5;
+  transition: .5s ease;
+}
 
-  .col-md-6{
-      -ms-flex:0 0 50%;
-      flex:0 0 50%;
-      max-width:50%
-    }
+.col-md-6{
+    -ms-flex:0 0 50%;
+    flex:0 0 50%;
+    max-width:50%
+  }
 
 
 .modal {

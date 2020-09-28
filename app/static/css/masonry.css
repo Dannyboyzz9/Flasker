@@ -1,6 +1,5 @@
 /* Defaults */
 body {
-  background: #f9f9f9;
   color: #465665;
 }
 
@@ -31,7 +30,7 @@ a {
 /* Intro section */
 .intro {
   margin: 1.75em 0 .75em;
-  border-bottom: 3px double rgba(0, 0, 0, 0.05);
+  border-bottom: 3px double rgba(0, 0, 0, 0.150);
   margin-bottom: 1.75em;
 }
 
@@ -60,6 +59,8 @@ a {
   transition: all .5s ease-in-out;
   column-gap: 30px;
   column-fill: initial;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Masonry item */
