@@ -1,5 +1,5 @@
 body{
-    background-color: aqua;
+    background-color: white;
   }
 
  html, body, div, span, applet, object, iframe,
@@ -111,13 +111,20 @@ body{
 }
 
 .homepage{
-  background-color: white;
+  width: auto;
+  margin-top: 3rem;
+}
+.welcome{
+  background-color: lightblue;
   padding-left: 2rem;
   padding-right: 2rem;
-  width: auto;
+  width: 1200px;
   margin: 0 auto;
   margin-top: 3rem;
   border-radius: 1rem;
+}
+.welcomelink{
+  color: blue;
 }
 .hometitle{
     padding: 1rem;
@@ -178,6 +185,11 @@ body{
     max-width:50%
   }
 
+.modal-img{
+  margin: 0 auto;
+  height: auto;
+  width: 466px;
+}
 
 .modal {
   position: fixed;
@@ -191,8 +203,9 @@ body{
   outline: 0;
 }
 
+/** @media (min-width: 550px)(max-width: 770px) **/
 
-@media only screen and (min-width:100px) and (max-width: 550px) {
+@media only screen and (min-width: 100px) and (max-width: 550px) {
     body{
         padding: 0 1rem;
     }

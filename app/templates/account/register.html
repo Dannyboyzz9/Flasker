@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block main %}
-
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="../static/css/style.css">
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 loginpage">
             <form method="POST" action="/register">
-                <h1 class="title">Login to Gramsnap</h1>
+                <h1 class="title">Register to Gramsnap</h1>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}

@@ -14,9 +14,10 @@ $(document).ready(function(){
 $('.brick').click(function(){
 	var image_data = $(this).data(image);
 	var image = image_data.image;
-	var description = `<p>${image.description}</p>`;
+	var description = `<p class="modal-desc">${image.description}</p>`;
 	var title = `<h5 class="modal-title">${image.name} <i class="fa fa-times" data-dismiss="modal" aria-label="Close" aria-hidden="true"></i></h5>`;
-	var img = `<img src="${image.upload_location}" alt="${image.name}">`;
-	$('#image-modal .modal-body').html(img + title + description);
+	var img = `<img class="modal-img" src="${image.upload_location}" alt="${image.name}">`;
+	var openlink = `<a href="${image.upload_location}" target="_blank">Open Image in Another Tab</a>`;
+	$('#image-modal .modal-body').html(img + title + description + openlink);
 	$('.modal').modal('show');
 });

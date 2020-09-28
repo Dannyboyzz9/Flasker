@@ -2,6 +2,21 @@
 {% block main %}
 <div class="container">
     <div class="row">
+        {% if user.logged_in %}
+        <div class="welcome">
+            <p>Welcome To Gram Snap</p>
+            <p>Start Exploring Now:</p>
+        </div>
+        {% else %}
+        <div class="welcome">
+            <p>Welcome To Gram Snap</p>
+            <p>Login or Register Now:</p>
+            <div class="welcomelink">
+                <a href="/login">Login</a> 
+                <a href="/register">Register</a>
+            </div>
+        </div>
+        {% endif %}
         <div class="homepage">
         {% if images %}
             <div class="masonry bordered">
