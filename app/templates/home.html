@@ -7,14 +7,8 @@
             <div class="masonry bordered">
             {% for image_object in images.each() %}
                 {% with image = image_object.val() %}
-                <div class="brick">
-                    <img src="{{ image.upload_location }}" alt="{{ image.description }}">
-                    <div class="overlaytext"> 
-                        <!--This is where infomation about the Image will be located--> 
-                        <div class="imgtitle"> {{ image.name }}</div>
-                        <div class="imgauthor"> {{ image.author }}</div>
-                        <div class="imgcattag"> {{ image.category }} {{ image.tags }} </div>
-                    </div>
+                <div class="brick" data-image='{{ image|tojson }}'>
+                    <img id="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
                 </div>
                 {% endwith %}
             {% endfor %}
@@ -23,3 +17,5 @@
     </div>
 </div>
 {% endblock %}
+
+
