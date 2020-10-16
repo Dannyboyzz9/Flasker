@@ -4,14 +4,18 @@
 	<div id="upload" class="text-center">
 		<div class="container-fluid">
 			<div class="row">
-				<form class="form-upload" method="POST" action="/images/upload" enctype=multipart/form-data>
-					<h1 class="mb-3 font-weight-normal">Image Upload</h1>
-					{% with messages = get_flashed_messages() %}
+                	<form class="form-edit" method="POST">
+                    <h1 class="mb-3 font-weight-normal">Image Edit for {{ image.name }}</h1>
+                    <div id="image">
+                        <img src="{{ image.upload_location }}" alt="{{ image.description }}">
+                    </div>
+        
+                    {% with messages = get_flashed_messages() %}
 						{# Handle messages here #}
 					{% endwith %}
 					<div class="form-group">
 						<label>Name</label>
-						<input type="text" name="name" class="form-control" required/>
+						<input type="text" name="name" class="form-control" value="{{ image.name }}" required/>
 					</div>
 					<div class="form-group">
 						<label>Description</label>
@@ -93,14 +97,12 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<div class="input-group-append">
-							<div class="custom-file">
-							<input type="file" class="custom-file-input" name="image" id="image-upload">
-							<label class="custom-file-label" for="image-upload">Choose file</label>
-							</div>
-						</div>
+						<input type="hidden" name="image_id" value="{{ image.id }}"/>
+                        <input type="hidden" name="upload_location" value="{{ image.upload_location }}"/>
+                        <input type="hidden" name="created_at" value="{{ image.created_at }}"/>
 					</div>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+                    <a href="/images/delete/{{ image.id }}"> Delete the Image! <i class="fas fa-trash-alt"></i></a>
 				</form>
 			</div>
 		</div>

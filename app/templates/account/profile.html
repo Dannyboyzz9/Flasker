@@ -4,38 +4,39 @@
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="../static/css/style.css">
 <div class="container">
-<div class="row">
-    <div class="col-md-6 offset-md-3 loginpage">
-        <form method="POST" action="/profile" enctype="multipart/form-data"> 
-            <h1>Update Your Profile</h1>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                    <p>{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <!--This is Where Username and Password inputs and Auth-->
-            <div class="form-group"> <!--FirstName-->
-                <label for="firstname">First Name:</label>
-                <input type="text" lass="form-control"  placeholder="First_Name" name="firstname">
-            </div>
-            <div class="form-group"> <!--LastName-->
-                <label for="lastname">Last Name:</label>
-                <input type="text" lass="form-control"  placeholder="Last_Name" name="lastname">
-            </div>
-            <div class="form-group"> <!--Password-->
-                <label for="passwordchange">Password:</label>
-                <input type="password" class="form-control"  placeholder="Passwordchange" name="passwordchange">
-            </div>
-            <div class="form-group"> <!--Avatar-->
-                <label for="avatar">Avatar:</label>
-                <input type="file" name="avatar" class="form-control"  placeholder="avatar">
-            </div>
-
-            <input type="submit" value="Submit" class="btn btn-primary"> <!--Submit Button-->
-        </form>
-    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 loginpage">
+            <form method="POST" action="/profile" enctype="multipart/form-data"> 
+                <h1>Update Your Profile</h1>
+                <img src="{{ image.user_avatar }}" alt="{{ image.user_name }}">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <!--This is Where Username and Password inputs and Auth-->
+                <div class="form-group"> <!--FirstName-->
+                    <label for="firstname">First Name:</label>
+                    <input type="text" lass="form-control"  placeholder="First_Name" name="firstname">
+                </div>
+                <div class="form-group"> <!--LastName-->
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" lass="form-control"  placeholder="Last_Name" name="lastname">
+                </div>
+                <div class="form-group"> <!--Password-->
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control"  placeholder="Password" name="password">
+                </div>
+                <div class="form-group"> <!--Avatar-->
+                    <label for="avatar">Avatar:</label>
+                    <input type="file" name="avatar" class="form-control"  placeholder="avatar">
+                    <img>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary"> <!--Submit Button-->
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

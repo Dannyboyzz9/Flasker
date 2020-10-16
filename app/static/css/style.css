@@ -51,7 +51,6 @@ body{
  }
  img, video {
    max-width: 100%;
-   min-width: 346.66px;
    vertical-align: middle;
  }
  p {
@@ -173,7 +172,7 @@ body{
   opacity: 0;
 }
 
-.brick:hover .overlaytext{
+.myBtn:hover .overlaytext{
   position: relative; 
   opacity: 0.5;
   transition: .5s ease;
@@ -202,6 +201,25 @@ body{
   overflow: hidden;
   outline: 0;
 }
+
+.avatar{
+  max-width: 100px;
+  border-radius: 100%;
+  height: 100px;
+}
+
+.imginfo{
+  padding-top: 1rem;
+}
+
+.form-upload{
+  height: auto;
+}
+
+.form-edit{
+  height: auto;
+}
+
 
 /** @media (min-width: 550px)(max-width: 770px) **/
 
