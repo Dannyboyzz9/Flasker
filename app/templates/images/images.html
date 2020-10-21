@@ -9,7 +9,10 @@
 			{% for image_object in images.each() %}
 				{% with image = image_object.val() %}
 				<div class="brick" data-image='{{ image|tojson }}'>
-					<img class="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
+					<img class="#" src="{{ image.upload_location }}" alt="{{ image.description }}">
+					<a href="/images/like/{{ image.id }}">
+						<i class="like fa-heart far" data-image="{{ image.id }}"></i>
+					</a>
 				</div>
 				{% endwith %}
 			{% endfor %}
@@ -22,3 +25,22 @@
 
 
 
+
+		<div class="brick" data-image='{{ image|tojson }}'>
+			<img class="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
+			<div class="info row mx-0">
+				<div class="col-2 avatar pl-0">
+					<img src="{{ image.user_avatar }}" alt="{{ image.user_name }}">
+				</div>
+				<div class="col-10 pr-0">
+					<h5>
+						{{ image.name }} 
+						<a href="/images/like/{{ image.id }}">
+							<i class="far fa-heart"></i>
+						</a>
+					</h5>
+					<p>{{ image.description }}</p>
+					<small>{{ image.user_name }}</small>
+				</div>
+			</div>
+		</div>
