@@ -46,7 +46,7 @@ class Database():
             if (user_id):
                 images = self.db.child("images").order_by_child("user_id").equal_to(user_id).limit_to_first(limit).get()
             else:
-                images = self.db.child("images").order_by_child("created_at").limit_to_first(limit).get()
+                images = self.db.child("images").order_by_child("user_id").limit_to_first(limit).get()
 
             flask_app.logger.info('####################### images val #####################')
             flask_app.logger.info(images.val())

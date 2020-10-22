@@ -4,20 +4,20 @@
 	<div class="row">
 		<div class="homepage">
 		<p>{{ title }}</p>
-		{% if images %}
+		 {% if images %}
 			<div class="masonry bordered">
 			{% for image_object in images.each() %}
 				{% with image = image_object.val() %}
-					{% set liked = 'fas' %}
-					{% set not_liked = 'far' %}
-					{% set likes = session['user']['likes'] %}
-					<div class="brick" data-image='{{ image|tojson }}'>
-						<figure class="filter-{{ image.filter }}">
-							<img class="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
-						</figure>
-						<a href="/images/like/{{ image.id }}">
-							<i class="like fa-heart {{ liked if image.id in likes else not_liked }}" data-image="{{ image.id }}"></i>
-						</a>
+				{% set liked = 'fas' %}
+				{% set not_liked = 'far' %}
+				{% set likes = session['user']['likes'] %}
+				<div class="brick" data-image='{{ image|tojson }}'>
+					<figure class="filter-{{ image.filter }}">
+						<img class="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
+					</figure>
+					<a href="/images/like/{{ image.id }}">
+						<i class="like fa-heart {{ liked if image.id in likes else not_liked }}" data-image="{{ image.id }}"></i>
+					</a>
 				</div>
 				{% endwith %}
 			{% endfor %}
