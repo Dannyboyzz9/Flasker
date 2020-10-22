@@ -22,22 +22,6 @@
             Dannys test
             <img src="../static/img/blankavatar.jpg">
 
-
-        {% if images %}
-            <div class="masonry bordered">
-            {% for image_object in images.each() %}
-                {% with image = image_object.val() %}
-
-                {% set liked = 'fas' %}
-                {% set not_liked = 'far' %}
-                {% set likes = session['user']['likes'] %}
-                <div class="brick" data-image='{{ image|tojson }}'>
-                    <img id="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
-                </div>
-                {% endwith %}
-            {% endfor %}
-            </div>
-        {% endif %}
         </div>
     </div>
 </div>

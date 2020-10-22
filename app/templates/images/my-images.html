@@ -13,7 +13,7 @@
 				{% with image = image_object.val() %}
 				<div>
 					<div class="brick editable" data-image='{{ image|tojson }}'>
-						<img id="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
+						<img id="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">					
 						<p>{{ image.name }}</p>
 						<p>{{ image.description }}</p>
 						<a href="/images/edit/{{ image.id }}"><i class="fas fa-edit"></i></a>
