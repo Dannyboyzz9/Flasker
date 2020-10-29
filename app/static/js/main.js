@@ -26,15 +26,15 @@ $('.brick figure').click(function(){
 					<img class="modal-img" src="${image.upload_location}" alt="${image.name},${image.description}">
 				</figure>`;
 
-	var content = `<div class="imginfo">
-					<h5 class="modal-title">${image.name}> 
-					<a href="/images/like/{{ image.id }}"><i class="far fa-heart"></i></a>
-						${edit_img}
-						<i class="fa fa-times" data-dismiss="modal" aria-label="Close" aria-hidden="true"></i>
-					</h5>
-					<p class="modal-desc">${image.description}</p>
-					<small>${image.user_name}</small>
-				</div>`;
+	var content = ` <div class="imginfo">
+						<h5 class="modal-title">${image.name}> 
+						<a href="/images/like/{{ image.id }}"><i class="far fa-heart"></i></a>
+							${edit_img}
+							<i class="fa fa-times" data-dismiss="modal" aria-label="Close" aria-hidden="true"></i>
+						</h5>
+						<p class="modal-desc">${image.description}</p>
+						<small>${image.user_name}</small>
+					</div>`;
 	var openlink = `<a href="${image.upload_location}" target="_blank">Open Image in Another Tab</a>`;
 	$('#image-modal .modal-body').html(img + content + openlink);
 	$('.modal').modal('show');
@@ -43,7 +43,9 @@ $('.brick figure').click(function(){
 //{{ liked if image.id in likes else not_liked }}
 
 /**
- * The Following code will make sure that the correct values are loaded on to 
+ * The Following code will make sure that the correct values are loaded on to what
+ * filter and catagory is associated with the image on the dropdown menus on the edit
+ * page.
  */
 
 if ($('#filter-select').length > 0 ) {
@@ -56,7 +58,7 @@ if ($('#category').length > 0 ) {
 	$('#category').val(category);
 }
 
-$('#fliter-select').change(function(e) {
+$('#filter-select').change(function(e) {
 	var new_filter = 'filter-' + this.value;
 	$('#image figure').removeClass();
 	$('#image figure').addClass(new_filter);
@@ -66,8 +68,9 @@ $('#fliter-select').change(function(e) {
 /**  The following code is used for the functionality of the liking system
  *   The Code waits for a user to click the like button then sets the class/visual represnetation 
  * based on whether the like button has or has not been prevously been pressed. Once the like button is
- * pressed a JSON request is made to firebase and dep
- * 
+ * pressed a JSON request is made to firebase. If a user has liked an img then
+ * the heart will have the class fas and when it is clicked again the like info will be removed from firebase
+ * and the heart will revert to the class far.
  */
 
 $(document).ready(function(){
@@ -75,6 +78,7 @@ $(document).ready(function(){
 	
 	$('i.like').click(function(e) {
 	
+		/** This stops the Modal opening */
 		e.stopPropagation();
 		e.preventDefault();
 	

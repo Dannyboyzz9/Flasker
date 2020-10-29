@@ -3,8 +3,17 @@
 <div class="container">
 	<div class="row">
 		{% with messages = get_flashed_messages() %}
-				{# Handle messages here #}
-			{% endwith %}
+			{% if messages %}
+				{% for message in messages %}
+				<div class="padding">
+					<div class="alert alert-info alert-dismissible fade show">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						<strong>Info!</strong> {{ message }} 
+					</div>
+				</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
 		<div class="homepage">
 		<p>{{ title }}</p>
 		{% if images %}
@@ -13,7 +22,9 @@
 				{% with image = image_object.val() %}
 				<div>
 					<div class="brick editable" data-image='{{ image|tojson }}'>
-						<img id="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">					
+						<figure class="filter-{{ image.filter }}">
+							<img class="myBtn" src="{{ image.upload_location }}" alt="{{ image.description }}">
+						</figure>					
 						<p>{{ image.name }}</p>
 						<p>{{ image.description }}</p>
 						<a href="/images/edit/{{ image.id }}"><i class="fas fa-edit"></i></a>

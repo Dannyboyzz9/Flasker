@@ -162,6 +162,13 @@ body{
   border-radius: 100%;
   height: 100px;
 }
+.profile-avatar{
+  max-width: 300px;
+  min-width: 300px;
+  border-radius: 100%;
+  max-height: 300px;
+  min-height: 300px;
+}
 
 .imginfo{
   padding-top: 1rem;
@@ -175,6 +182,14 @@ body{
   height: auto;
 }
 
+.padding{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.danger{
+  color: red;
+}
 
 /** @media (min-width: 550px)(max-width: 770px) **/
 
