@@ -62,12 +62,14 @@ class Account():
         else:
             # Return on success
             return
-        
+    
+    #Login Request
     def login(self, request):
         if request.method == 'POST':
             email = request.form['email']
             password = request.form['password']
 
+            #If a email or password hasnt been provided error is provided.
             error = None
             if not email:
                 error = 'An email is required.'
@@ -75,6 +77,7 @@ class Account():
                 error = 'Password is required.'
             else:
                 try:
+                    #Sends request if email and password is provided
                     database = Database()
                     user = database.login(email, password)
                     # TODO Remove for production
@@ -85,15 +88,19 @@ class Account():
 
         if error:
             raise Exception(error)
+            # Raise error from failed Firebase request
         else:
+            # Return on success
             return
-        
+    
+    #update a users proflie
     def update(self, request):
         if request.method == 'POST':
             first_name = request.form['firstname']
             last_name = request.form['lastname']
 
             error = None
+            #if a first or last name is not provided an error is sent.
             if not first_name:
                 error = 'A first name is required.'
             elif not last_name:
@@ -116,23 +123,28 @@ class Account():
 
         if error:
             raise Exception(error)
+            # Raise error from failed Firebase request
         else:
+            # Return on success
             return
-        
+
+    #liking system
     def like(self, image_id, like, request):
                 
         changed = False
         likes = session['user']['likes']
 
+        #if a image is liked then the image will apear as liked even if the like was made in another session
         if like == 'true':
             if image_id not in likes:
                 likes.append(image_id)
                 changed = True
         else:
+            #if not then 
             if image_id in likes:
                 likes.remove(image_id)
                 changed = True
-
+        #Sends like data to database
         if changed:
             session['user']['likes'] = likes
             database = Database()
@@ -141,6 +153,7 @@ class Account():
 
         return changed
         
+        #if a logout request is made, the user will be logged out
     def logout(self):
         self.user.unset_user()
 

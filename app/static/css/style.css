@@ -35,6 +35,7 @@ body{
     font-size: 8rem;
     margin-top: 2rem;
 }
+/**This Html Sets up the background on the error or 404 page **/
 #errorpage{
     background: url(../img/bigerror.jpg) no-repeat right center;
     height: 100vh;
@@ -127,18 +128,14 @@ body{
   opacity: 0;
 }
 
+/** This code is used for the color change when hovering over an image**/
 .myBtn:hover .overlaytext{
   position: relative; 
   opacity: 0.5;
   transition: .5s ease;
 }
 
-.col-md-6{
-    -ms-flex:0 0 50%;
-    flex:0 0 50%;
-    max-width:50%
-  }
-
+/*Following code is for the modal styling */
 .modal-img{
   margin: 0 auto;
   height: auto;
@@ -157,6 +154,7 @@ body{
   outline: 0;
 }
 
+/*Code used avatar on profile page.*/
 .avatar{
   max-width: 100px;
   border-radius: 100%;

@@ -10,7 +10,9 @@
             <img class="profile-avatar" src="{{ session['user']['avatar'] }}" alt="Your Profile Image">
             </div>
             {% endif %}
-            <title>{{ user.first_name}} {{ user.last_name }}</title>
+            {% if session['user']['first_name'] %}
+            <title>{{ session['user']['first_name'] }}</title>
+            {% endif %}
         </div>
         <div class="col-1"></div>
         <div class="col-7">
@@ -29,19 +31,18 @@
                         {% endif %}
                     {% endwith %}
                     <!--This is Where Username and Password inputs and Auth-->
+                    {% if session['user']['first_name'] %}
                     <div class="form-group"> <!--FirstName-->
                         <label for="firstname">First Name:</label>
-                        <input type="text" class="form-control"  placeholder="{{user.first_name}}" name="firstname">
+                        <input type="text" class="form-control"  placeholder="{{ session['user']['first_name'] }}" name="firstname">
                     </div>
+                    {% endif %}
+                    {% if session['user']['last_name'] %}
                     <div class="form-group"> <!--LastName-->
                         <label for="lastname">Last Name:</label>
-                        <input type="text" class="form-control"  placeholder="{{user.last_name}}" name="lastname">
+                        <input type="text" class="form-control"  placeholder="{{ session['user']['last_name'] }}" name="lastname">
                     </div>
-                    <div class="form-group"> <!--Password-->
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control"  placeholder="Password" name="password">
-                    </div>
-                   
+                    {% endif %}
                     <div class="form-group"> <!--Avatar-->
                         <label for="avatar">Avatar:</label>
                         <input type="file" name="avatar" class="form-control"  placeholder="avatar">
