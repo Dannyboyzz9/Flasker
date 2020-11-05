@@ -1,16 +1,3 @@
-
-
-//{{ liked if image.id in likes else not_liked }}
-
-/**
- * The Following code will make sure that the correct values are loaded on to what
- * filter and catagory is associated with the image on the dropdown menus on the edit
- * page.
- */
-
-
-
-
 /**  The following code is used for the functionality of the liking system
  *   The Code waits for a user to click the like button then sets the class/visual represnetation 
  * based on whether the like button has or has not been prevously been pressed. Once the like button is
@@ -20,13 +7,8 @@
  */
 
 $(document).ready(function(){
-	
-	$('#filter-select').change(function(e) {
-		var new_filter = 'filter-' + this.value;
-		$('#image figure').removeClass();
-		$('#image figure').addClass(new_filter);
-	});
 
+	// Sets Up masonry
 	var $grid = $('.grid').masonry({
 		gutter: 30
 	});
@@ -35,15 +17,29 @@ $(document).ready(function(){
 		$grid.masonry('layout');
 	});
 
+	/**
+ 	* The Following code will make sure that the correct values are loaded on to what
+ 	* filter and catagory is associated with the image on the dropdown menus on the edit
+ 	* page.
+ 	*/
+	//loads the current fliter in the dropdown menu on edit.html
 	if ($('#filter-select').length > 0 ) {
 		var filter = $('#filter-select').data('filter');
-		$('#filter-select').val(filter);
+		$('#filterselect').val(filter);
 	}
-	
+
+	//loads the current category in the dropdown menu on edit.html
 	if ($('#category').length > 0 ) {
 		var category = $('#category').data('category');
 		$('#category').val(category);
 	}
+
+	// Changes the fliter without requiring a form post
+	$('#filterselect').change(function(e) {
+		var new_filter = 'filter-' + this.value;
+		$('#image111 figure').removeClass();
+		$('#image111 figure').addClass(new_filter);
+	});
 
 	$('i.like').click(function(e) {
 	
@@ -55,7 +51,7 @@ $(document).ready(function(){
 		var image_id 	= $(this).data('image');
 		var _this 		= $(this);
 	
-		/** this gets a JSON request */
+		/** this gets a JSON request of the like button */
 		$.getJSON(
 			$SCRIPT_ROOT + '/like', 
 			{

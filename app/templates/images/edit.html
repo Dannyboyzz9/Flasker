@@ -7,7 +7,7 @@
 				<div class="col-md-4 offset-md-4">
 					<form class="form-edit" method="POST">
 						<h1 class="mb-3 font-weight-normal">Image Edit for {{ image.name }}</h1>
-						<div id="image">
+						<div id="image111">
 							<figure class="filter-{{ image.filter }}">
 								<img id="filter-select" src="{{ image.upload_location }}" alt="{{ image.description }}">
 							</figure>
@@ -20,7 +20,7 @@
                                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                                 <strong>Info!</strong> {{ message }} 
                             </div>
-						</div>
+						</div> 
 						{% endfor %}
 						{% endif %}
 						{% endwith %}
@@ -65,7 +65,7 @@
 						</div>
 						<div class="form-group">
 							<label>Filter</label>
-							<select id="filter-select" name="filter" class="custom-select" data-filter="{{ image.filter }}" required>
+							<select id="filterselect" name="filter" class="custom-select" data-filter="{{ image.filter }}" required>
 								<option value="_1977">1977</option>
 								<option value="aden">Aden</option>
 								<option value="amaro">Amaro</option>
