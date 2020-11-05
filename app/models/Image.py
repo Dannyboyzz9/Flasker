@@ -101,8 +101,9 @@ class Image():
         else:
             return images
 
+    #Upload img script
     def upload(self, request):
-
+        #Image data
         image_id        = str(uuid.uuid1())
         name            = request.form['name']
         description     = request.form['description']
@@ -161,8 +162,9 @@ class Image():
         else:
             return image_id
 
+    #Image update script
     def update(self, image_id, request):
-        
+        #Requests Image data
         name            = request.form['name']
         description     = request.form['description']
         category        = request.form['category']

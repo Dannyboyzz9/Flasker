@@ -96,16 +96,18 @@ class Account():
     #update a users proflie
     def update(self, request):
         if request.method == 'POST':
+            #requests first name and last name
             first_name = request.form['firstname']
             last_name = request.form['lastname']
 
             error = None
-            #if a first or last name is not provided an error is sent.
+            #if a first or last name is not provided an error is sent. if profile is updated via a form post
             if not first_name:
                 error = 'A first name is required.'
             elif not last_name:
                 error = 'A last name is required.'
             else:
+                #
                 if 'avatar' in request.files:
                     file = request.files['avatar']
                     if file.filename:

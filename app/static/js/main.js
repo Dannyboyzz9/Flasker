@@ -87,11 +87,11 @@ $(document).ready(function(){
 		var editable = $(this).hasClass('editable');
 		var image = image_data.image;
 		var edit_img = (editable) ? `<a href="/images/edit/${image.id}"><i class="fas fa-edit"></i></a>` : "";
-
+		/**Sets image as the image that was clicked wit the filter */
 		var img = `	<figure class="filter-${image.filter}">
 						<img class="modal-img" src="${image.upload_location}" alt="${image.name},${image.description}">
 					</figure>`;
-
+		/**All the other info about the photo*/
 		var content = ` <div class="imginfo">
 							<h5 class="modal-title">${image.name}> 
 							${edit_img}
@@ -100,8 +100,11 @@ $(document).ready(function(){
 							<p class="modal-desc">${image.description}</p>
 							<small>${image.user_name}</small>
 						</div>`;
+		/**Link to open source img in another page*/
 		var openlink = `<a href="${image.upload_location}" target="_blank">Open Image in Another Tab</a>`;
+		/**Loads all the content, image and openlink onto the popup modal */
 		$('#image-modal .modal-body').html(img + content + openlink);
+		/**Shows modal */
 		$('.modal').modal('show');
 	});
 
