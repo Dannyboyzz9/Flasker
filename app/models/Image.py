@@ -10,12 +10,14 @@ class Image():
     def __init__(self):
         return None
 
+    #gets a max of 20imgs from Firebase
     def get_images(self, limit=20):
         
         error = None
         images = False
 
         try:
+            #gets images from database
             database = Database()
             images = database.get_images(limit)
 
@@ -24,16 +26,21 @@ class Image():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else:
             return images
+            # Return on success
 
+
+    #gets a max of 20imgs per catagory
     def get_category_images(self, category, limit=20):
         
         error = None
         images = False
         
         try:
+            #gets images from database
             database = Database()
             images = database.get_category_images(category, limit)
 
@@ -42,16 +49,20 @@ class Image():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else:
             return images
+            # Return on success
 
+    #Gets images id's
     def get_image(self, image_id):
         
         error = None
         image = False
         
         try:
+            #gets images from database
             database = Database()
             image = database.get_image(image_id)
 
@@ -60,15 +71,19 @@ class Image():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else:
             return image
+            # Return on success
 
+    #deletes images
     def delete_image(self, image_id):
         
         error = None
         
         try:
+            #request is made to database to delete image
             database = Database()
             database.delete_image(image_id)
 
@@ -77,18 +92,24 @@ class Image():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else: 
             return
+            # Return on success
 
+    #gets a maxium of 20 images uploaded by the user
     def get_user_images(self, limit=20):
         
         error = None
         images = False
         user_id = False
+
+        #gets session data, then fetches images uploaded by the user via localId
         if (session['user'] and session['user']['localId']):
             user_id = session['user']['localId']
         try:
+            #makes database request
             database = Database()
             images = database.get_images(limit, user_id)
 
@@ -97,9 +118,12 @@ class Image():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else:
             return images
+            # Return on success
+
 
     #Upload img script
     def upload(self, request):
@@ -127,12 +151,19 @@ class Image():
             file = request.files['image']
 
         if not error:
+            #gives error if file hasnt been uploaded
             if file.filename == '':
                 error = 'A file is required.'
+            
+            #gives error if name is not set
             elif not name:
                 error = 'An name is required.'
+
+            #gives error if description is not set
             elif not description:
                 error = 'A description is required.'
+
+            #gives error if category is not set
             elif not category:
                 error = 'A category is required.'
             else:
@@ -156,11 +187,14 @@ class Image():
                 except Exception as err:
                     error = err
         if error:
+            # Raise error from failed Firebase request
             flask_app.logger.info('################ UPLOAD ERROR #######################')
             flask_app.logger.info(error)
             raise Exception(error)
         else:
             return image_id
+            # Return on success
+
 
     #Image update script
     def update(self, image_id, request):
@@ -181,13 +215,19 @@ class Image():
             user_name   = session['user']['first_name'] + " " + session['user']['last_name']
             user_avatar = session['user']['avatar']
         else: 
+            #gives error if not logged in
             error = 'You must be logged in to update an image.'
 
         if not error:
+            #gives error if name is not set
             if not name:
                 error = 'An name is required.'
+
+            #gives error if description is not set
             elif not description:
                 error = 'A description is required.'
+
+            #gives error if category is not set
             elif not category:
                 error = 'A category is required.'
             else:
@@ -205,12 +245,15 @@ class Image():
                         "created_at":           created_at
                     }
                     database = Database()
+                    #saves updated image data
                     uploaded = database.save_image(image_data, image_id)
                 except Exception as err:
                     error = err
         if error:
+            # Raise error from failed Firebase request
             flask_app.logger.info('################ UPDATE ERROR #######################')
             flask_app.logger.info(error)
             raise Exception(error)
         else:
             return
+            # Return on success

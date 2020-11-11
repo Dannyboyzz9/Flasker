@@ -39,7 +39,7 @@ class Database():
             "USER_DISABLED": "This account has been disabled by an administrator.",
         }
 
-    # Image Requests
+    # Image request to database for imgs uploaded by user (gets max of 20 images.)
     def get_images(self, limit=20, user_id=False):
         
         try:
@@ -58,6 +58,7 @@ class Database():
         except Exception as err:
             self.process_error(err)
 
+    #gets images by catagory, limited by 20  
     def get_category_images(self, category, limit=20):
         try:
             images = self.db.child("images").order_by_child("category").equal_to(category).limit_to_first(limit).get()
@@ -69,13 +70,15 @@ class Database():
             
         except Exception as err:
             self.process_error(err)
-        
+    
+    #This code gets the image id of the images it has loaded for editing, deleting and for the modal
     def get_image(self, image_id):
         
         error = None
         image = False
         
         try:
+            #gets image id
             image = self.db.child("images").child(image_id).get()
 
         except Exception as err:
@@ -83,22 +86,26 @@ class Database():
             error = err
 
         if error:
+            # Raise error from failed Firebase request
             raise Exception(error)
         else:
             return image.val()
 
+    #saves image data when uploaded
     def save_image(self, image_data, image_id):
         try:
             self.db.child("images").child(image_id).set(image_data)
         except Exception as err:
             self.process_error(err)
 
+    #when a image is deleted this code removes that images data
     def delete_image(self, image_id):
         try:
             self.db.child("images").child(image_id).remove()
         except Exception as err:
             self.process_error(err)
 
+    #removes matching data?
     def remove_matching_value(self, data, value):
         return_data = []
         for key in data:
@@ -117,6 +124,7 @@ class Database():
         except Exception as err:
             self.process_error(err)
 
+    #authendicates the user
     def login(self, email, password):
         try:
             user_auth = self.auth.sign_in_with_email_and_password(email, password)
@@ -125,22 +133,27 @@ class Database():
         except Exception as err:
             self.process_error(err)
 
+    #Updates users infomation when a database request is made
     def update_user(self, user_data):
         try:
             self.db.child("users").child(user_data['localId']).update(user_data)
             return
         except Exception as err:
             self.process_error(err)
- 
+    
+    #When something goes wrong this logs the error
     def process_error(self, error):
         flask_app.logger.info(error)
         readable_error = self.get_readable_error(error)
         raise Exception(readable_error)
 
+    #The logged error is then converted into a readable error
     def get_readable_error(self, error):
         error_json = error.args[1]
         error_messsage = json.loads(error_json)['error']['message']
+        #If error is know this returns the error to the webpage for the user to see
         if error_messsage in self.readable_errors.keys(): 
             return self.readable_errors[error_messsage]
         else: 
+            #if error is unknown this error message is sent
             return "There was a problem with your request."

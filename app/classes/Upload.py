@@ -14,15 +14,17 @@ class Upload():
         allowed_extension = self.allowed_file(file.filename)
         if allowed_extension:
             fullname = filename + '.' + allowed_extension
+            #upload destination
             destination = os.path.join('static/uploads', fullname)
             file.save(os.path.join(SITE_ROOT, destination))
+            #returns if successful
             return destination
         else:
             #sends a error message if above statment is false
             raise Exception("Only allowed filetypes: ".join(self.extensions.values()))
 
     def allowed_file(self, filename):
-        #Makes sure code is in the correct format
+        #Makes sure code is in the correct format, specifically the '.'
         if ('.' in filename and filename.rsplit('.', 1)[1].lower() in self.extensions):
             return filename.rsplit('.', 1)[1].lower()
         return False
